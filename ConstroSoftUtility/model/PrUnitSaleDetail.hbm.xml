@@ -1,0 +1,106 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping namespace="ConstroSoft" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="PrUnitSaleDetail, App_Code/Model" table="PR_UNIT_SALE_DETAILS" >
+    <id name="Id" type="Int64">
+      <column name="ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+      <generator class="identity" />
+    </id>
+    <version name="Version" column="VERSION" type="Int64"/>
+    <property name="BookingDate" type="DateTime">
+      <column name="BOOKING_DATE" not-null="true" sql-type="DATE" />
+    </property>
+    <property name="SaleRate" type="Decimal">
+      <column name="SALE_RATE" not-null="false" precision="10" scale="2" sql-type="NUMERIC(10,2)" />
+    </property>
+    <property name="PossessionDate" type="DateTime">
+      <column name="POSSESSION_DATE" not-null="false" sql-type="DATE" />
+    </property>
+    <property name="IsPossessionDone" type="String">
+      <column name="IS_POSSESSION_DONE" default="'N'" not-null="false" length="1" sql-type="NVARCHAR(1)" />
+    </property>
+    <property name="AgreementDate" type="DateTime">
+      <column name="AGREEMENT_DATE" not-null="false" sql-type="DATE" />
+    </property>
+    <property name="IsAgreementDone" type="String">
+      <column name="IS_AGREEMENT_DONE" default="'N'" not-null="false" length="1" sql-type="NVARCHAR(1)" />
+    </property>
+    <property name="LoanBankName" type="String">
+      <column name="LOAN_BANK_NAME" not-null="false" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="LoanBankBranch" type="String">
+      <column name="LOAN_BANK_BRANCH" not-null="false" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="LoanAmt" type="Decimal">
+      <column name="LOAN_AMT" not-null="false" precision="18" scale="2" sql-type="NUMERIC(18,2)" />
+    </property>
+    <property name="DiscountAdjAmt" type="Decimal">
+      <column name="DISCOUNT_ADJ_AMT" not-null="false" precision="18" scale="2" sql-type="NUMERIC(18,2)" />
+    </property>
+    <property name="AgreementAmt" type="Decimal">
+      <column name="AGREEMENT_AMT" not-null="true" precision="18" scale="2" sql-type="NUMERIC(18,2)" />
+    </property>
+    <property name="TotalTaxAmt" type="Decimal">
+      <column name="TOTAL_TAX_AMT" not-null="false" precision="18" scale="2" sql-type="NUMERIC(18,2)" />
+    </property>
+    <property name="TotalOtherAmt" type="Decimal">
+      <column name="TOTAL_OTHER_AMT" not-null="false" precision="18" scale="2" sql-type="NUMERIC(18,2)" />
+    </property>
+    <property name="TotalPymtAmt" type="Decimal">
+      <column name="TOTAL_PYMT_AMT" not-null="true" precision="18" scale="2" sql-type="NUMERIC(18,2)" />
+    </property>
+    <property name="TotalCashAmt" type="Decimal">
+      <column name="TOTAL_CASH_AMT" not-null="false" precision="18" scale="2" sql-type="NUMERIC(18,2)" />
+    </property>
+    <property name="TotalPackageCost" type="Decimal">
+      <column name="TOTAL_PACKAGE_COST" not-null="true" precision="18" scale="2" sql-type="NUMERIC(18,2)" />
+    </property>
+    <property name="CancellationFee" type="Decimal">
+      <column name="CANCELLATION_FEE" not-null="false" precision="18" scale="2" sql-type="NUMERIC(18,2)" />
+    </property>
+    <property name="Status" type="String">
+      <column name="STATUS" not-null="false" length="30" sql-type="NVARCHAR(30)" />
+    </property>
+    <property name="FirmNumber" type="String">
+      <column name="FIRM_NUMBER" not-null="true" length="10" sql-type="NVARCHAR(10)" />
+    </property>
+    <property name="InsertDate" type="DateTime">
+      <column name="INSERT_DATE" default="getdate()" not-null="true" sql-type="DATETIME" />
+    </property>
+    <property name="UpdateDate" type="DateTime">
+      <column name="UPDATE_DATE" default="getdate()" not-null="true" sql-type="DATETIME" />
+    </property>
+    <property name="InsertUser" type="String">
+      <column name="INSERT_USER" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="UpdateUser" type="String">
+      <column name="UPDATE_USER" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <many-to-one name="Customer" class="Customer">
+      <column name="CUSTOMER_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+    <many-to-one name="FirmMember" class="FirmMember">
+      <column name="FIRM_MEMBER_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+    <many-to-one name="PropertyUnit" class="PropertyUnit">
+      <column name="UNIT_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+    <set name="BulkDemandLetters" inverse="true" generic="true">
+      <key>
+        <column name="PR_UNIT_SALE_ID" />
+      </key>
+      <one-to-many class="BulkDemandLetter" />
+    </set>
+    <set name="PrUnitSalePymts" inverse="true" generic="true">
+      <key>
+        <column name="PR_UNIT_SALE_ID" />
+      </key>
+      <one-to-many class="PrUnitSalePymt" />
+    </set>
+    <set name="PrUnitSaleTaxDetails" inverse="true" generic="true">
+      <key>
+        <column name="PR_UNIT_SALE_ID" />
+      </key>
+      <one-to-many class="PrUnitSaleTaxDetail" />
+    </set>
+  </class>
+</hibernate-mapping>

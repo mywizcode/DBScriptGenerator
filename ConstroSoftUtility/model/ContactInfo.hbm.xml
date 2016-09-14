@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping namespace="ConstroSoft" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="ContactInfo, App_Code/Model" table="CONTACT_INFO" >
+    <id name="Id" type="Int64">
+      <column name="ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+      <generator class="identity" />
+    </id>
+    <property name="Contact" type="String">
+      <column name="CONTACT" not-null="true" length="15" sql-type="NVARCHAR(15)" />
+    </property>
+    <property name="AltContact" type="String">
+      <column name="ALT_CONTACT" not-null="false" length="15" sql-type="NVARCHAR(15)" />
+    </property>
+    <property name="Gender" type="String">
+      <column name="GENDER" not-null="false" length="1" sql-type="NVARCHAR(1)" />
+    </property>
+    <property name="MaritalStatus" type="String">
+      <column name="MARITAL_STATUS" not-null="false" length="1" sql-type="NVARCHAR(1)" />
+    </property>
+    <property name="Email" type="String">
+      <column name="EMAIL" not-null="false" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="AltEmail" type="String">
+      <column name="ALT_EMAIL" not-null="false" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="Dob" type="DateTime">
+      <column name="DOB" not-null="false" sql-type="DATE" />
+    </property>
+    <property name="CurrentAddressLine1" type="String">
+      <column name="CURRENT_ADDRESS_LINE1" not-null="true" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="CurrentAddressLine2" type="String">
+      <column name="CURRENT_ADDRESS_LINE2" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="CurrentTown" type="String">
+      <column name="CURRENT_TOWN" not-null="false" length="50" sql-type="NVARCHAR(50)" />
+    </property>
+    <property name="CurrentCity" type="String">
+      <column name="CURRENT_CITY" not-null="false" length="50" sql-type="NVARCHAR(50)" />
+    </property>
+    <property name="CurrentState" type="String">
+      <column name="CURRENT_STATE" not-null="false" length="50" sql-type="NVARCHAR(50)" />
+    </property>
+    <property name="CurrentCountry" type="String">
+      <column name="CURRENT_COUNTRY" not-null="false" length="50" sql-type="NVARCHAR(50)" />
+    </property>
+    <property name="CurrentPin" type="String">
+      <column name="CURRENT_PIN" not-null="false" length="20" sql-type="NVARCHAR(20)" />
+    </property>
+    <property name="PerAddressLine1" type="String">
+      <column name="PER_ADDRESS_LINE1" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="PerAddressLine2" type="String">
+      <column name="PER_ADDRESS_LINE2" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="PerTown" type="String">
+      <column name="PER_TOWN" not-null="false" length="50" sql-type="NVARCHAR(50)" />
+    </property>
+    <property name="PerCity" type="String">
+      <column name="PER_CITY" not-null="false" length="50" sql-type="NVARCHAR(50)" />
+    </property>
+    <property name="PerState" type="String">
+      <column name="PER_STATE" not-null="false" length="50" sql-type="NVARCHAR(50)" />
+    </property>
+    <property name="PerCountry" type="String">
+      <column name="PER_COUNTRY" not-null="false" length="50" sql-type="NVARCHAR(50)" />
+    </property>
+    <property name="PerPin" type="String">
+      <column name="PER_PIN" not-null="false" length="20" sql-type="NVARCHAR(20)" />
+    </property>
+  </class>
+</hibernate-mapping>
