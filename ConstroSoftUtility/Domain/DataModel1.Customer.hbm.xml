@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="ConstroSoftNH" namespace="ConstroSoftNH" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Customer" table="CUSTOMER" schema="dbo">
+    <id name="Id" type="Int64">
+      <column name="ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+      <generator class="identity" />
+    </id>
+    <property name="FirstName" type="String">
+      <column name="FIRST_NAME" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="MiddleName" type="String">
+      <column name="MIDDLE_NAME" not-null="false" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="LastName" type="String">
+      <column name="LAST_NAME" not-null="false" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="Pan" type="String">
+      <column name="PAN" not-null="false" length="50" sql-type="NVARCHAR(50)" />
+    </property>
+    <property name="FirmNumber" type="String">
+      <column name="FIRM_NUMBER" not-null="true" length="10" sql-type="NVARCHAR(10)" />
+    </property>
+    <property name="InsertDate" type="DateTime">
+      <column name="INSERT_DATE" default="getdate()" not-null="true" sql-type="DATETIME" />
+    </property>
+    <property name="UpdateDate" type="DateTime">
+      <column name="UPDATE_DATE" default="getdate()" not-null="true" sql-type="DATETIME" />
+    </property>
+    <property name="Version" type="Int64">
+      <column name="VERSION" default="0" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </property>
+    <property name="InsertUser" type="String">
+      <column name="INSERT_USER" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="UpdateUser" type="String">
+      <column name="UPDATE_USER" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <many-to-one name="ContactInfo" class="ContactInfo">
+      <column name="CONTACT_INFO_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+    <many-to-one name="MasterControlDatum_SALUTATION_ID" class="MasterControlDatum">
+      <column name="SALUTATION_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+    <many-to-one name="MasterControlDatum_OCCUPATION" class="MasterControlDatum">
+      <column name="OCCUPATION" not-null="false" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+    <set name="CoCustomers" inverse="true" generic="true">
+      <key>
+        <column name="CUSTOMER_ID" />
+      </key>
+      <one-to-many class="CoCustomer" />
+    </set>
+    <set name="PrUnitSaleDetails" inverse="true" generic="true">
+      <key>
+        <column name="CUSTOMER_ID" />
+      </key>
+      <one-to-many class="PrUnitSaleDetail" />
+    </set>
+  </class>
+</hibernate-mapping>

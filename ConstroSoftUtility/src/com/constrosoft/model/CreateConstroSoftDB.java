@@ -13,7 +13,8 @@ public class CreateConstroSoftDB {
 	static String TAB = "	";
 	public static void main(String[] args) {
 		try {
-			FileInputStream file = new FileInputStream(new File("C:\\MyData\\Sunil\\WizEye\\ConstroSoft\\DB\\ControSoft Database_12Sep2016.xlsx"));
+			File sourceFile = new File("C:\\MyData\\Sunil\\WizEye\\ConstroSoft\\DB\\ControSoft Database_21Sep2016.xlsx");
+			FileInputStream file = new FileInputStream(sourceFile);
 
 			// Create Workbook instance holding reference to .xlsx file
 			XSSFWorkbook workbook = new XSSFWorkbook(file);
@@ -24,6 +25,7 @@ public class CreateConstroSoftDB {
 			rowIterator.next();
 			TableDefinition tableDefinition = null;
 			StringBuffer dbScript = new StringBuffer();
+			dbScript.append("--Script Generated for ->"+sourceFile.getName());
 			while (rowIterator.hasNext()) {
 				Row row = rowIterator.next();
 				if (isTable(row)) {

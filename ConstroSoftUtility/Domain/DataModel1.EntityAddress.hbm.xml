@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="ConstroSoftNH" namespace="ConstroSoftNH" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="EntityAddress" table="ENTITY_ADDRESS" schema="dbo">
+    <id name="Id" type="Int64">
+      <column name="ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+      <generator class="identity" />
+    </id>
+    <property name="ParentId" type="Int64">
+      <column name="PARENT_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </property>
+    <property name="ParentType" type="String">
+      <column name="PARENT_TYPE" not-null="true" length="2" sql-type="NVARCHAR(2)" />
+    </property>
+    <many-to-one name="Address" class="Address">
+      <column name="ADDRESS_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+  </class>
+</hibernate-mapping>

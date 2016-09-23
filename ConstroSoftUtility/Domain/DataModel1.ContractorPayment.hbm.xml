@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="ConstroSoftNH" namespace="ConstroSoftNH" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="ContractorPayment" table="CONTRACTOR_PAYMENT" schema="dbo">
+    <id name="Id" type="Int64">
+      <column name="ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+      <generator class="identity" />
+    </id>
+    <property name="FromDate" type="DateTime">
+      <column name="FROM_DATE" not-null="false" sql-type="DATE" />
+    </property>
+    <property name="ToDate" type="DateTime">
+      <column name="TO_DATE" not-null="false" sql-type="DATE" />
+    </property>
+    <property name="Tds" type="Decimal">
+      <column name="TDS" not-null="false" precision="18" scale="2" sql-type="NUMERIC(18,2)" />
+    </property>
+    <property name="OtherDeduction" type="Decimal">
+      <column name="OTHER_DEDUCTION" not-null="false" precision="18" scale="2" sql-type="NUMERIC(18,2)" />
+    </property>
+    <property name="Tax" type="Decimal">
+      <column name="TAX" not-null="false" precision="18" scale="2" sql-type="NUMERIC(18,2)" />
+    </property>
+    <property name="Description" type="String">
+      <column name="DESCRIPTION" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="PaymentAmt" type="Decimal">
+      <column name="PAYMENT_AMT" not-null="false" precision="18" scale="2" sql-type="NUMERIC(18,2)" />
+    </property>
+    <property name="TotalAmt" type="Decimal">
+      <column name="TOTAL_AMT" not-null="false" precision="18" scale="2" sql-type="NUMERIC(18,2)" />
+    </property>
+    <property name="FirmNumber" type="String">
+      <column name="FIRM_NUMBER" not-null="true" length="10" sql-type="NVARCHAR(10)" />
+    </property>
+    <property name="InsertDate" type="DateTime">
+      <column name="INSERT_DATE" default="getdate()" not-null="true" sql-type="DATETIME" />
+    </property>
+    <property name="UpdateDate" type="DateTime">
+      <column name="UPDATE_DATE" default="getdate()" not-null="true" sql-type="DATETIME" />
+    </property>
+    <property name="Version" type="Int64">
+      <column name="VERSION" default="0" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </property>
+    <property name="InsertUser" type="String">
+      <column name="INSERT_USER" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="UpdateUser" type="String">
+      <column name="UPDATE_USER" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <many-to-one name="Contractor" class="Contractor">
+      <column name="CONTRACTOR_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+    <many-to-one name="Property" class="Property">
+      <column name="PROPERTY_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+    <many-to-one name="FirmAccount" class="FirmAccount">
+      <column name="ACCOUNT_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+    <many-to-one name="FirmMember" class="FirmMember">
+      <column name="FIRM_MEMBER_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+  </class>
+</hibernate-mapping>

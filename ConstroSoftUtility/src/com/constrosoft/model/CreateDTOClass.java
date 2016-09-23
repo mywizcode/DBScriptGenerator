@@ -11,7 +11,7 @@ public class CreateDTOClass {
 	public static void main(String[] args) {
 
 		try {
-			String hbmFilePath = "C:\\inetpub\\wwwroot\\ConstroSoft_v2.0\\App_Code\\Model";
+			String hbmFilePath = "C:\\MyData\\Sunil\\WizEye\\ConstroSoft\\Project\\ConstroSoft\\Model";
 			File f = new File(hbmFilePath);
 			CreateDTOClass modifyHBMFile = new CreateDTOClass();
 			if (f.isDirectory()) {

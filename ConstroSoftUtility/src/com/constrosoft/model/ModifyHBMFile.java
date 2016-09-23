@@ -13,7 +13,7 @@ public class ModifyHBMFile {
 	public static void main(String[] args) {
 
 		try {
-			String hbmFilePath = "C:\\MyData\\Sunil\\WizEye\\ConstroSoft\\Repo\\ConstroSoftUtility\\Files\\HBMDomain";
+			String hbmFilePath = "C:\\MyData\\Sunil\\WizEye\\ConstroSoft\\Repo\\DBUtility\\ConstroSoftUtility\\Domain";
 			File f = new File(hbmFilePath);
 			ModifyHBMFile modifyHBMFile = new ModifyHBMFile();
 			List<String> tablesWithVersion = new ArrayList<String>();
@@ -38,9 +38,9 @@ public class ModifyHBMFile {
 	}
 
 	public void modify(File hbmFile, List<String> tablesWithVersion) throws IOException {
-		String newFileName = hbmFile.getName().replace("DataModel.", "");
+		String newFileName = hbmFile.getName().replace("DataModel1.", "");
 		newFileName = newFileName.replace("MasterControlDatum", "MasterControlData");
-		String tmpFileName = "C:\\MyData\\Sunil\\WizEye\\ConstroSoft\\Repo\\ConstroSoftUtility\\Files\\HBMDomain\\Modified\\" + newFileName;
+		String tmpFileName = "C:\\MyData\\Sunil\\WizEye\\ConstroSoft\\Repo\\DBUtility\\ConstroSoftUtility\\Domain\\Modified\\" + newFileName;
 		if (!tmpFileName.endsWith("hbm.xml")) {
 			formatDomainFile(hbmFile, tmpFileName);
 		} else {
@@ -98,8 +98,11 @@ public class ModifyHBMFile {
 			int rowversionInx = 3;
 			String tableName = "";
 			while ((line = br.readLine()) != null) {
+				if (line.startsWith("<hibernate-mapping assembly=")) {
+					line = line.replaceAll("ConstroSoftNH", "ConstroSoft");
+				}
 				if (line.startsWith(classLineWord)) {
-					line = line.replace(tableWord, ", App_Code/Model" + tableWord);
+					//line = line.replace(tableWord, ", App_Code/Model" + tableWord);
 					tableName = getDBTableName(line);
 				}
 				if(line.contains("</id>")) {
@@ -142,6 +145,9 @@ public class ModifyHBMFile {
 			String line;
 			while ((line = br.readLine()) != null) {
 				line = line.replace("MasterControlDatum", "MasterControlData");
+				if(line.contains("ConstroSoftNH")) {
+					line = line.replace("ConstroSoftNH","ConstroSoft");
+				}
 				line = correctMasterDataTableKeysInDomain(line);
 				bw.write(line + "\n");
 			}

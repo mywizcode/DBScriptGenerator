@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="ConstroSoftNH" namespace="ConstroSoftNH" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="PaymentTransaction" table="PAYMENT_TRANSACTIONS" schema="dbo">
+    <id name="Id" type="Int64">
+      <column name="ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+      <generator class="identity" />
+    </id>
+    <property name="TxDate" type="DateTime">
+      <column name="TX_DATE" not-null="true" sql-type="DATE" />
+    </property>
+    <property name="Balance" type="Decimal">
+      <column name="BALANCE" not-null="false" precision="18" scale="2" sql-type="NUMERIC(18,2)" />
+    </property>
+    <property name="Paid" type="Decimal">
+      <column name="PAID" not-null="true" precision="18" scale="2" sql-type="NUMERIC(18,2)" />
+    </property>
+    <property name="Pending" type="Decimal">
+      <column name="PENDING" not-null="false" precision="18" scale="2" sql-type="NUMERIC(18,2)" />
+    </property>
+    <property name="Status" type="String">
+      <column name="STATUS" not-null="true" length="30" sql-type="NVARCHAR(30)" />
+    </property>
+    <property name="PymtMode" type="String">
+      <column name="PYMT_MODE" not-null="false" length="25" sql-type="NVARCHAR(25)" />
+    </property>
+    <property name="BankName" type="String">
+      <column name="BANK_NAME" not-null="false" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="ChequeNo" type="String">
+      <column name="CHEQUE_NO" not-null="false" length="50" sql-type="NVARCHAR(50)" />
+    </property>
+    <property name="PymtModeTxDate" type="DateTime">
+      <column name="PYMT_MODE_TX_DATE" not-null="false" sql-type="DATE" />
+    </property>
+    <property name="FirmNumber" type="String">
+      <column name="FIRM_NUMBER" not-null="true" length="10" sql-type="NVARCHAR(10)" />
+    </property>
+    <property name="InsertDate" type="DateTime">
+      <column name="INSERT_DATE" default="getdate()" not-null="true" sql-type="DATETIME" />
+    </property>
+    <property name="UpdateDate" type="DateTime">
+      <column name="UPDATE_DATE" default="getdate()" not-null="true" sql-type="DATETIME" />
+    </property>
+    <property name="Version" type="Int64">
+      <column name="VERSION" default="0" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </property>
+    <property name="InsertUser" type="String">
+      <column name="INSERT_USER" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="UpdateUser" type="String">
+      <column name="UPDATE_USER" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <many-to-one name="PaymentMaster" class="PaymentMaster">
+      <column name="PYMT_MASTER_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+    <many-to-one name="PaymentTransaction_CANCELLED_TX_ID" class="PaymentTransaction">
+      <column name="CANCELLED_TX_ID" not-null="false" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+    <set name="AccountTransactions" inverse="true" generic="true">
+      <key>
+        <column name="TX_SOURCE_ID" />
+      </key>
+      <one-to-many class="AccountTransaction" />
+    </set>
+    <set name="PaymentTransactions_CANCELLED_TX_ID" inverse="true" generic="true">
+      <key>
+        <column name="CANCELLED_TX_ID" />
+      </key>
+      <one-to-many class="PaymentTransaction" />
+    </set>
+  </class>
+</hibernate-mapping>

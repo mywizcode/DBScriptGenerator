@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="ConstroSoftNH" namespace="ConstroSoftNH" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="StockItem" table="STOCK_ITEM" schema="dbo">
+    <id name="Id" type="Int64">
+      <column name="ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+      <generator class="identity" />
+    </id>
+    <property name="Name" type="String">
+      <column name="NAME" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="Unit" type="String">
+      <column name="UNIT" not-null="false" length="30" sql-type="NVARCHAR(30)" />
+    </property>
+    <property name="FirmNumber" type="String">
+      <column name="FIRM_NUMBER" not-null="true" length="10" sql-type="NVARCHAR(10)" />
+    </property>
+    <property name="InsertDate" type="DateTime">
+      <column name="INSERT_DATE" default="getdate()" not-null="true" sql-type="DATETIME" />
+    </property>
+    <property name="UpdateDate" type="DateTime">
+      <column name="UPDATE_DATE" default="getdate()" not-null="true" sql-type="DATETIME" />
+    </property>
+    <property name="Version" type="Int64">
+      <column name="VERSION" default="0" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </property>
+    <property name="InsertUser" type="String">
+      <column name="INSERT_USER" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="UpdateUser" type="String">
+      <column name="UPDATE_USER" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <set name="PurchaseDetails" inverse="true" generic="true">
+      <key>
+        <column name="ITEM_ID" />
+      </key>
+      <one-to-many class="PurchaseDetail" />
+    </set>
+    <set name="StockMasters" inverse="true" generic="true">
+      <key>
+        <column name="ITEM_ID" />
+      </key>
+      <one-to-many class="StockMaster" />
+    </set>
+  </class>
+</hibernate-mapping>

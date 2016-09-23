@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="ConstroSoft" namespace="ConstroSoft" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="UserRole" table="USER_ROLES" >
+    <id name="Id" type="Int64">
+      <column name="ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+      <generator class="identity" />
+    </id>
+    <property name="Name" type="String">
+      <column name="NAME" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="Description" type="String">
+      <column name="DESCRIPTION" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <set name="UserDefinitions" inverse="true" generic="true">
+      <key>
+        <column name="ROLE_ID" />
+      </key>
+      <one-to-many class="UserDefinition" />
+    </set>
+    <set name="UserEntitlements" table="USER_ROLE_ENTITLEMENT"  inverse="true" generic="true">
+      <key>
+        <column name="USER_ROLE_ID" />
+      </key>
+      <many-to-many class="UserEntitlement" fetch="join">
+        <column name="ENTITLEMENT_ID" />
+      </many-to-many>
+    </set>
+  </class>
+</hibernate-mapping>

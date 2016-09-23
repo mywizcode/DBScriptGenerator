@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="ConstroSoft" namespace="ConstroSoft" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="PropertyUnit" table="PROPERTY_UNIT" >
+    <id name="Id" type="Int64">
+      <column name="ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+      <generator class="identity" />
+    </id>
+    <version name="Version" column="VERSION" type="Int64"/>
+    <property name="Wing" type="String">
+      <column name="WING" not-null="false" length="50" sql-type="NVARCHAR(50)" />
+    </property>
+    <property name="FloorNo" type="Decimal">
+      <column name="FLOOR_NO" not-null="false" precision="2" scale="0" sql-type="NUMERIC(2)" />
+    </property>
+    <property name="UnitNo" type="String">
+      <column name="UNIT_NO" not-null="false" length="25" sql-type="NVARCHAR(25)" />
+    </property>
+    <property name="BuildupArea" type="Decimal">
+      <column name="BUILDUP_AREA" not-null="true" precision="18" scale="3" sql-type="NUMERIC(18,3)" />
+    </property>
+    <property name="CarpetArea" type="Decimal">
+      <column name="CARPET_AREA" not-null="false" precision="18" scale="3" sql-type="NUMERIC(18,3)" />
+    </property>
+    <property name="BalconyArea" type="Decimal">
+      <column name="BALCONY_AREA" not-null="false" precision="18" scale="3" sql-type="NUMERIC(18,3)" />
+    </property>
+    <property name="Status" type="String">
+      <column name="STATUS" not-null="false" length="15" sql-type="NVARCHAR(15)" />
+    </property>
+    <property name="FirmNumber" type="String">
+      <column name="FIRM_NUMBER" not-null="true" length="10" sql-type="NVARCHAR(10)" />
+    </property>
+    <property name="InsertDate" type="DateTime">
+      <column name="INSERT_DATE" default="getdate()" not-null="true" sql-type="DATETIME" />
+    </property>
+    <property name="UpdateDate" type="DateTime">
+      <column name="UPDATE_DATE" default="getdate()" not-null="true" sql-type="DATETIME" />
+    </property>
+    <property name="InsertUser" type="String">
+      <column name="INSERT_USER" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="UpdateUser" type="String">
+      <column name="UPDATE_USER" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <many-to-one name="UnitTypeId" class="MasterControlData">
+      <column name="UNIT_TYPE_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+    <many-to-one name="Facing" class="MasterControlData">
+      <column name="FACING" not-null="false" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+    <many-to-one name="Direction" class="MasterControlData">
+      <column name="DIRECTION" not-null="false" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+    <set name="PropertyParkings" table="PR_UNIT_PARKING"  generic="true">
+      <key not-null="true">
+        <column name="PR_UNIT_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+      </key>
+      <many-to-many class="PropertyParking" fetch="join">
+        <column name="PR_PARKING_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+      </many-to-many>
+    </set>
+    <many-to-one name="PropertyTower" class="PropertyTower">
+      <column name="PR_TOWER_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+    <set name="PrUnitSaleDetails" inverse="true" generic="true">
+      <key>
+        <column name="UNIT_ID" />
+      </key>
+      <one-to-many class="PrUnitSaleDetail" />
+    </set>
+  </class>
+</hibernate-mapping>

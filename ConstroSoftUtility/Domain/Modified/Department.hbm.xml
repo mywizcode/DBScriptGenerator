@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="ConstroSoft" namespace="ConstroSoft" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Department" table="DEPARTMENT" >
+    <id name="Id" type="Int64">
+      <column name="ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+      <generator class="identity" />
+    </id>
+    <version name="Version" column="VERSION" type="Int64"/>
+    <property name="Name" type="String">
+      <column name="NAME" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="Description" type="String">
+      <column name="DESCRIPTION" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="FirmNumber" type="String">
+      <column name="FIRM_NUMBER" not-null="true" length="10" sql-type="NVARCHAR(10)" />
+    </property>
+    <property name="InsertDate" type="DateTime">
+      <column name="INSERT_DATE" default="getdate()" not-null="true" sql-type="DATETIME" />
+    </property>
+    <property name="UpdateDate" type="DateTime">
+      <column name="UPDATE_DATE" default="getdate()" not-null="true" sql-type="DATETIME" />
+    </property>
+    <property name="InsertUser" type="String">
+      <column name="INSERT_USER" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="UpdateUser" type="String">
+      <column name="UPDATE_USER" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <many-to-one name="Firm" class="Firm">
+      <column name="FIRM_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+    <set name="FirmMembers" inverse="true" generic="true">
+      <key>
+        <column name="DEPARTMENT_ID" />
+      </key>
+      <one-to-many class="FirmMember" />
+    </set>
+  </class>
+</hibernate-mapping>

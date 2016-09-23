@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="ConstroSoft" namespace="ConstroSoft" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="Country" table="COUNTRY" >
+    <id name="Id" type="Int64">
+      <column name="ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+      <generator class="identity" />
+    </id>
+    <property name="Abbreviation" type="String">
+      <column name="ABBREVIATION" not-null="false" length="5" sql-type="NVARCHAR(5)" />
+    </property>
+    <property name="Name" type="String">
+      <column name="NAME" not-null="true" length="50" sql-type="NVARCHAR(50)" />
+    </property>
+    <set name="Addresses" inverse="true" generic="true">
+      <key>
+        <column name="COUNTRY" />
+      </key>
+      <one-to-many class="Address" />
+    </set>
+    <set name="FirmAccounts" inverse="true" generic="true">
+      <key>
+        <column name="COUNTRY" />
+      </key>
+      <one-to-many class="FirmAccount" />
+    </set>
+    <set name="States" inverse="true" generic="true">
+      <key>
+        <column name="COUNTRY_ID" />
+      </key>
+      <one-to-many class="State" />
+    </set>
+  </class>
+</hibernate-mapping>

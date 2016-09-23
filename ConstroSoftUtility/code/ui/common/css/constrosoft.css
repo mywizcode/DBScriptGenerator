@@ -1,0 +1,563 @@
+.control-label 
+{  
+    font-size: 12px;
+    
+}
+.control-label > a.btn-xxs {
+    margin-left: 5px;
+}
+.control-label-bold 
+{  
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.ch-container {
+    padding: 0px !important;
+}
+
+.dropdown-100-percent {
+    width: 100% !important;
+}
+
+.align-left {
+  text-align: left !important;
+}
+
+.align-right{
+  text-align: right !important;
+}
+.align-center{
+  text-align: center !important;
+}
+
+.border-gray {
+    border: 1px solid #cccccc;
+}
+.paddingrightleft5 {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.paddingrightleft10 {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.paddingleft0 {
+    padding-left: 0px !important;
+}
+.paddingleft5 {
+    padding-left: 5px;
+}
+.paddingright5 {
+    padding-right: 5px !important;
+}
+.paddingleft10 {
+    padding-left: 10px !important;
+}
+.paddingright10 {
+    padding-right: 10px !important;
+}
+.margintop5 {
+    margin-top: 5px !important;
+}
+.margintop0 {
+    margin-top: 0px !important;
+}
+.margintop10 {
+    margin-top: 10px !important;
+}
+.margintop15 {
+    margin-top: 15px !important;
+}
+.marginbottom0 {
+    margin-bottom: 0px !important;
+}
+.marginbottom5 {
+    margin-bottom: 5px !important;
+}
+.marginbottom10 {
+    margin-bottom: 10px !important;
+}
+.marginleft18 {
+    margin-left: 18px !important;
+}
+.modal-error-msg{
+    font-weight: bold;
+    font-size: 12px;
+}
+
+@media (min-width: 992px) {
+.col-md-4 {
+    margin-right: 0px;
+}
+}
+
+.top-block {
+    border-radius: 20px;
+    font-size: 14px;
+    text-align: center;
+    padding: 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    position: relative;
+    display: block;
+    line-height: 22px;
+    text-shadow: 0 0 1px #DDD;
+    text-decoration: none;
+    -webkit-box-shadow: inset 0 0 0 1px #FAFAFA;
+    -moz-box-shadow: inset 0 0 0 1px #FAFAFA;
+    box-shadow: inset 0 0 0 1px #FAFAFA;
+    background: -moz-linear-gradient(top, rgba(30, 87, 153, 0.2) 0%, rgba(125, 185, 232, 0) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(30, 87, 153, 0.2)), color-stop(100%, rgba(125, 185, 232, 0)));
+    background: -webkit-linear-gradient(top, rgba(30, 87, 153, 0.2) 0%, rgba(125, 185, 232, 0) 100%);
+    background: -o-linear-gradient(top, rgba(30, 87, 153, 0.2) 0%, rgba(125, 185, 232, 0) 100%);
+    background: -ms-linear-gradient(top, rgba(30, 87, 153, 0.2) 0%, rgba(125, 185, 232, 0) 100%);
+    background: linear-gradient(to bottom, rgba(30, 87, 153, 0.2) 0%, rgba(125, 185, 232, 0) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#331e5799', endColorstr='#007db9e8', GradientType=0);
+}
+
+.top-block span {
+    clear: both;
+}
+
+.top-block i {
+    font-size: 25px;
+}
+
+.top-block:hover {
+    text-decoration: none;
+}
+
+.btn-xxs {
+    padding: 1px 2px;
+    font-size: 12px;
+    line-height: 1.2;
+    border-radius: 3px;
+}
+
+.no-focus-outline {
+    -webkit-focus-ring-color: none !important;
+    outline: none !important;
+    outline: none !important;
+    outline-offset: 0px !important;
+}
+.cursor-pointer{
+    cursor: pointer;
+}
+div.dtr-bs-modal div.modal-header {
+    background-color: #337ab7;
+}
+div.dtr-bs-modal div.modal-header h4.modal-title {
+    color: white;
+}
+.section-header {  
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1.1;
+    color: #317eac;
+    text-align: left;
+}
+.section-header > hr {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}  
+/*Data Table CSS START*/
+.datatable-caption {  
+    font-size: 14px;
+    font-weight: bold;
+    line-height: 1.1;
+    color: #317eac;
+    text-align: center;
+}
+
+table.dataTable thead th {
+    text-align: center;
+    /*background: #3c8dbc;*/
+    background: #3c8dbc;
+	color: #ffffff;
+	
+}
+
+.table_button_space{
+	margin-right :8px;
+	margin-top : 0px;
+	border-radius: 4px !important;
+	background-color: buttonface;
+}
+
+.btn-primary {
+    background-color: #3c8dbc;
+    border-color: #367fa9;
+    /*background-image: linear-gradient(#54b4eb, #2fa4e7 60%, #1d9ce5);*/
+    background-image: none;
+    color: #ffffff;
+}
+
+table.dataTable{
+  width: 100%;
+  border-collapse: collapse !important;
+  table-layout: fixed;
+}
+
+table.dataTable tbody td {
+    white-space:nowrap;
+	overflow:hidden;
+}
+
+table.datatable-modal-table>tbody{
+	border: 1px solid #dddddd;
+	font-size: 13px;
+}
+
+table.table.datatable-modal-table>tbody>tr>td:first-child {
+	background-color: #f9f9f9;
+	font-weight: bold;
+	border: 1px solid #dddddd;
+}
+.table.datatable-modal-table>tbody>tr>th, 
+.table.datatable-modal-table>tfoot>tr>th, 
+.table.datatable-modal-table>thead>tr>th {
+    padding: 10px;
+    vertical-align: middle;
+}
+.table.datatable-modal-table>tbody>tr>td, 
+.table.datatable-modal-table>tfoot>tr>td, 
+.table.datatable-modal-table>thead>tr>td {
+    padding: 6px;
+    vertical-align: middle;
+}
+
+/*Below CSS is used to show modal link (+ icon) in second column of Responsive table*/
+table.dataTable.col2-responsive.dtr-column.collapsed>tbody>tr>td:first-child+td {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+table.dataTable.col2-responsive.dtr-column.collapsed>tbody>tr>td:first-child+td:before{
+    top: 9px;
+    left: 4px;
+    height: 14px;
+    width: 14px;
+    display: block;
+    position: absolute;
+    color: white;
+    border: 2px solid white;
+    border-radius: 14px;
+    box-shadow: 0 0 3px #444;
+    box-sizing: content-box;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 14px;
+    content: '+';
+    background-color: #337ab7;
+}
+/*Below CSS is used to show modal link (+ icon) in second column of CUSTOM Responsive table*/
+table.dataTable.col2-responsive-custom:not(.dtr-column)>tbody>tr>td:first-child
+{
+    text-align: center;
+}
+table.dataTable.col2-responsive-custom:not(.dtr-column)>tbody>tr>td:first-child+td {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+table.dataTable.col2-responsive-custom:not(.dtr-column)>tbody>tr>td:first-child+td:before{
+    top: 9px;
+    left: 4px;
+    height: 14px;
+    width: 14px;
+    display: block;
+    position: absolute;
+    color: white;
+    border: 2px solid white;
+    border-radius: 14px;
+    box-shadow: 0 0 3px #444;
+    box-sizing: content-box;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 14px;
+    content: '+';
+    background-color: #337ab7;
+}
+/*Below CSS is used to show modal link (+ icon) in first column of CUSTOM Responsive table*/
+table.dataTable.col1-responsive-custom:not(.dtr-column)>tbody>tr>td:first-child {
+    position: relative;
+    padding-left: 30px;
+    cursor: pointer;
+}
+
+table.dataTable.col1-responsive-custom:not(.dtr-column)>tbody>tr>td:first-child:before{
+    top: 9px;
+    left: 4px;
+    height: 14px;
+    width: 14px;
+    display: block;
+    position: absolute;
+    color: white;
+    border: 2px solid white;
+    border-radius: 14px;
+    box-shadow: 0 0 3px #444;
+    box-sizing: content-box;
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    line-height: 14px;
+    content: '+';
+    background-color: #337ab7;
+}
+
+table.table thead th.sorting:after, table.table thead th.sorting_asc:after, table.table thead th.sorting_desc:after {
+  /*  top: 50% !important;*/
+}
+.table.dataTable>tbody>tr>th, 
+.table.dataTable>tfoot>tr>th, 
+.table.dataTable>thead>tr>th {
+    padding: 10px;
+    vertical-align: middle;
+}
+.table.dataTable>tbody>tr>td, 
+.table.dataTable>tfoot>tr>td, 
+.table.dataTable>thead>tr>td {
+    padding: 5px;
+    vertical-align: middle;
+}
+/*Data Table CSS END*/
+
+.box {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.box-inner {
+    border: 1px solid #DEDEDE;
+    background-color: #FFFFFF;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    box-shadow: 0 0 10px rgba(189, 189, 189, 0.4);
+    -webkit-box-shadow: 0 0 10px rgba(189, 189, 189, 0.4);
+    -moz-box-shadow: 0 0 10px rgba(189, 189, 189, 0.4);
+}
+
+.box-header {
+    border: none;
+    padding-top: 0px;
+    border-bottom: 1px solid #DEDEDE;
+    border-radius: 3px 3px 0 0;
+    -webkit-border-radius: 3px 3px 0 0;
+    -moz-border-radius: 3px 3px 0 0;
+    height: 35px;
+    min-height: 35px !important;
+    margin-bottom: 0;
+    font-weight: bold;
+    font-size: 14px;
+    color: #3c8dbc !important;
+    background: -moz-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(0, 0, 0, 0.1)));
+    background: -webkit-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
+    background: -o-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
+    background: -ms-linear-gradient(top, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.1) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ffffff', endColorstr='#1a000000', GradientType=0);
+
+}
+
+.box-header h2 {
+    font-size: 14px;
+    width: auto;
+    clear: none;
+    float: left;
+    line-height: 25px;
+    white-space: nowrap;
+    font-weight: bold;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.box-header h3 {
+    font-size: 13px;
+    width: auto;
+    clear: none;
+    float: left;
+    line-height: 25px;
+    white-space: nowrap;
+}
+
+.box-header h2 > i {
+    margin-top: 1px;
+}
+
+.box-icon {
+    float: right;
+}
+
+.box-icon a {
+    clear: none;
+    float: left;
+    margin: 0 2px;
+    height: 20px;
+    width: 5px;
+    margin-top: 1px;
+}
+
+.box-icon a i {
+    margin-left: -6px;
+    top: -1px;
+}
+
+.box-content 
+{
+   padding: 10px;
+}
+/*Login form*/
+.login-caption {
+    min-height: 10px;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-bottom: 0px;
+    border-radius: 5px 5px 0px 0px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    text-align: center;
+    background-color: #3c8dbc;
+    color: #ffffff;
+    font-weight:bold;
+}
+.login-form {
+    min-height: 10px;
+    padding: 15px;
+    background-color: #f5f5f5;
+    border: 1px solid #e3e3e3;
+    border-top: 0px;
+    border-radius: 0px 0px 5px 5px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.05);
+}
+.login-header{
+    font-size: 25px;
+    color: #3c8dbc;
+    margin-top: 40px;
+}
+.login-field-addon{
+  border-radius: 4px 0px 0px 4px !important; 
+  border-color: #d2d6de;
+  background-color: #eeeeee !important;
+  color: #3c8dbc;
+}
+.login-form-bottom {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    float: none !important;
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+}
+.alert {
+    padding: 5px;
+    margin-bottom: 5px;
+    border: 1px solid transparent;
+    border-radius: 0px;
+}
+
+/*Dropdown CSS*/
+.bootstrap-select > button.dropdown-toggle{
+    background-color: #ffffff;
+    border: 1px solid #ccc;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+.bootstrap-select > button.dropdown-toggle:focus,
+.bootstrap-select > button.dropdown-toggle:hover,
+.bootstrap-select.open > button.dropdown-toggle,
+.bootstrap-select.open > button.dropdown-toggle:hover,
+.bootstrap-select.open > button.dropdown-toggle:focus{
+    background-color: #ffffff;
+}
+.bootstrap-select > button.dropdown-toggle:focus,
+.bootstrap-select.open > button.dropdown-toggle,
+.bootstrap-select.open > button.dropdown-toggle:hover{
+    border-color: #66afe9;
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 5px rgba(102,175,233,.6);
+    outline: none !important;
+    outline-offset: 0px !important;
+}
+.dropdown-menu>.active>a, 
+.dropdown-menu>.active>a:focus, 
+.dropdown-menu>.active>a:hover,
+.dropdown-menu>.selected>a, 
+.dropdown-menu>.selected>a:focus, 
+.dropdown-menu>.selected>a:hover {
+    color: #fff;
+    text-decoration: none;
+    background-color: #337ab7;
+    outline: 0;
+}
+.input-group-addon {
+    font-size: inherit;
+}
+.bootstrap-select.btn-group .dropdown-menu{
+    font-size: inherit;
+}
+/*Form field CSS*/
+/*Note: Decreased shadow effect(Reduced pixels)*/
+.form-control:focus {
+    border-color: #66afe9;
+    outline: 0;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 5px rgba(102,175,233,.6);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075),0 0 5px rgba(102,175,233,.6);
+}
+/*This css is used to show data in read only view*/
+.rdview-text{
+    min-height: 30px;
+    display: block;
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #f5f5f5;
+    border: 1px solid #DDD ;
+    border-radius: 4px;
+    vertical-align: middle;
+    font-weight:normal;
+}
+section.content {
+    padding: 10px;
+}
+.box-header {
+    padding-top: 7px !important;
+}
+.nav-tabs > li > a {
+    padding: 6px 10px;
+}
+hr{
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.nav-tabs-custom > .nav-tabs{
+    background-color: #f5f5f5;
+}
+.box-header > i {
+    font-size: 13px !important;
+}
+div.alert-danger > ul {
+    padding-left: 20px;
+}
+label.control-label.required:after  {
+    content:"*";
+    color: Red;
+    font-weight: bold;
+    margin-left: 0px;
+}
+label.control-label.required.space:after  {
+    margin-left: 2px;
+}
+.checkbox-inline, .radio-inline {
+    cursor: pointer !important;
+}

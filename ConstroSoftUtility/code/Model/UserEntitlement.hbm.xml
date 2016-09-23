@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="ConstroSoft" namespace="ConstroSoft" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="UserEntitlement" table="USER_ENTITLEMENT" >
+    <id name="Id" type="Int64">
+      <column name="ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+      <generator class="identity" />
+    </id>
+    <property name="Name" type="String">
+      <column name="NAME" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="Level" type="Int32">
+      <column name="LEVEL" not-null="true" precision="10" scale="0" sql-type="INT" />
+    </property>
+    <property name="Description" type="String">
+      <column name="DESCRIPTION" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <many-to-one name="parent" class="UserEntitlement">
+      <column name="PARENT_ID" not-null="false" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+    <set name="UserRoles" table="USER_ROLE_ENTITLEMENT"  generic="true">
+      <key not-null="true">
+        <column name="ENTITLEMENT_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+      </key>
+      <many-to-many class="UserRole" fetch="join">
+        <column name="USER_ROLE_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+      </many-to-many>
+    </set>
+  </class>
+</hibernate-mapping>

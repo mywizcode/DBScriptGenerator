@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="ConstroSoft" namespace="ConstroSoft" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="ContactInfo" table="CONTACT_INFO" >
+    <id name="Id" type="Int64">
+      <column name="ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+      <generator class="identity" />
+    </id>
+    <property name="Contact" type="String">
+      <column name="CONTACT" not-null="true" length="15" sql-type="NVARCHAR(15)" />
+    </property>
+    <property name="AltContact" type="String">
+      <column name="ALT_CONTACT" not-null="false" length="15" sql-type="NVARCHAR(15)" />
+    </property>
+    <property name="Gender" type="String">
+      <column name="GENDER" not-null="false" length="1" sql-type="NVARCHAR(1)" />
+    </property>
+    <property name="MaritalStatus" type="String">
+      <column name="MARITAL_STATUS" not-null="false" length="1" sql-type="NVARCHAR(1)" />
+    </property>
+    <property name="Email" type="String">
+      <column name="EMAIL" not-null="false" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="AltEmail" type="String">
+      <column name="ALT_EMAIL" not-null="false" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="Dob" type="DateTime">
+      <column name="DOB" not-null="false" sql-type="DATE" />
+    </property>
+    <set name="CoCustomers" inverse="true" generic="true">
+      <key>
+        <column name="CONTACT_INFO_ID" />
+      </key>
+      <one-to-many class="CoCustomer" />
+    </set>
+    <set name="Contractors" inverse="true" generic="true">
+      <key>
+        <column name="CONTACT_INFO_ID" />
+      </key>
+      <one-to-many class="Contractor" />
+    </set>
+    <set name="Customers" inverse="true" generic="true">
+      <key>
+        <column name="CONTACT_INFO_ID" />
+      </key>
+      <one-to-many class="Customer" />
+    </set>
+    <set name="EnquiryDetails" inverse="true" generic="true">
+      <key>
+        <column name="CONTACT_INFO_ID" />
+      </key>
+      <one-to-many class="EnquiryDetail" />
+    </set>
+    <set name="Firms" inverse="true" generic="true">
+      <key>
+        <column name="CONTACT_INFO_ID" />
+      </key>
+      <one-to-many class="Firm" />
+    </set>
+    <set name="FirmMembers" inverse="true" generic="true">
+      <key>
+        <column name="CONTACT_INFO_ID" />
+      </key>
+      <one-to-many class="FirmMember" />
+    </set>
+    <set name="Properties" inverse="true" generic="true">
+      <key>
+        <column name="CONTACT_INFO_ID" />
+      </key>
+      <one-to-many class="Property" />
+    </set>
+    <set name="Suppliers" inverse="true" generic="true">
+      <key>
+        <column name="CONTACT_INFO_ID" />
+      </key>
+      <one-to-many class="Supplier" />
+    </set>
+  </class>
+</hibernate-mapping>

@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<hibernate-mapping assembly="ConstroSoft" namespace="ConstroSoft" xmlns="urn:nhibernate-mapping-2.2">
+  <class name="PropertyExpense" table="PROPERTY_EXPENSES" >
+    <id name="Id" type="Int64">
+      <column name="ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+      <generator class="identity" />
+    </id>
+    <version name="Version" column="VERSION" type="Int64"/>
+    <property name="ExpenseDate" type="DateTime">
+      <column name="EXPENSE_DATE" not-null="true" sql-type="DATE" />
+    </property>
+    <property name="Amount" type="Decimal">
+      <column name="AMOUNT" not-null="false" precision="18" scale="2" sql-type="NUMERIC(18,2)" />
+    </property>
+    <property name="Comments" type="String">
+      <column name="COMMENTS" not-null="false" length="255" sql-type="NVARCHAR(255)" />
+    </property>
+    <property name="FirmNumber" type="String">
+      <column name="FIRM_NUMBER" not-null="true" length="10" sql-type="NVARCHAR(10)" />
+    </property>
+    <property name="InsertDate" type="DateTime">
+      <column name="INSERT_DATE" default="getdate()" not-null="true" sql-type="DATETIME" />
+    </property>
+    <property name="UpdateDate" type="DateTime">
+      <column name="UPDATE_DATE" default="getdate()" not-null="true" sql-type="DATETIME" />
+    </property>
+    <property name="InsertUser" type="String">
+      <column name="INSERT_USER" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <property name="UpdateUser" type="String">
+      <column name="UPDATE_USER" not-null="true" length="100" sql-type="NVARCHAR(100)" />
+    </property>
+    <many-to-one name="FirmMember" class="FirmMember">
+      <column name="FIRM_MEMBER_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+    <many-to-one name="ExpenseType" class="MasterControlData">
+      <column name="EXPENSE_TYPE" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+    <many-to-one name="Property" class="Property">
+      <column name="PROPERTY_ID" not-null="true" precision="19" scale="0" sql-type="BIGINT" />
+    </many-to-one>
+  </class>
+</hibernate-mapping>
