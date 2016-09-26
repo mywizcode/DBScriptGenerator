@@ -1,0 +1,108 @@
+Search Grid logic
+
+On Select Record
+	- Set PageMode = NONE and hide Tab 2,3..
+	- Set IsSelected = true for selected record in List of Entity
+	
+	- setTabInfo(PageMode.NONE);
+	- long selectedId = //Get selected RadioBtn and Id Event
+	- setSelectedEntity();
+On Click Add Btn
+	- Set PageMode = ADD and unhide and init labels of Tab 2,3.. and btns
+	- Init new Entity and store in ViewState
+	- Clear/populate fields in Tab 2,3..
+	- Jump to Tab 2
+	
+	- setTabInfo(PageMode.ADD);
+	- fetchEmployee();
+	- populateUIFieldsFromDTO(null);
+On Click View Btn
+	- Set PageMode = VIEW and unhide and init labels of Tab 2,3.. and btns
+	- Get selected Id and Fetch Entity from DB and set in ViewState
+	- Clear/populate fields in Tab 2,3..
+	- Jump to Tab 2
+	
+	- doViewModifyAction(PageMode.VIEW);
+On Click Modify Btn
+	- Set PageMode = MODIFY and unhide and init labels of Tab 2,3.. and btns
+	- Get selected Id and Fetch Entity from DB and set in ViewState
+	- Clear/populate fields in Tab 2,3..
+	- Jump to Tab 2
+	
+	- doViewModifyAction(PageMode.MODIFY);
+On Click Delete Btn
+	- Get selected Id and delete Entity from DB
+	- Clear ViewState entity and hide Tab 2,3..
+	- Populate search table (IsSelected flag should get reset)
+	
+	- DeleteEmployeeBO()
+	- setTabInfo(PageMode.NONE);
+On Click Submit Btn
+	- If (PageMode = MODIFY && Entity.Id > 0) && (PageMode = ADD && Entity.Id < 1) in Viewstate then populate entity from UI and save to DB
+	- Populate search table and re-select current entity
+	- Call View Btn logic for new selected entity
+	
+	- long Id = Save changes to DB (ADD/MODIFY)
+	- loadSearchGrid(Id);
+	- doViewModifyAction(PageMode.VIEW);
+On Click Cancel Btn	
+	- Set PageMode = NONE and hide Tab 2,3..
+	- Clear ViewState Entity
+	- Populate search table and re-select current entity
+	
+	- long selectedId = Selected Id from ViewState List where IsSelected = true;
+	- setTabInfo(PageMode.NONE);
+	- loadSearchGrid(selectedId);
+	
+	
+private void setTabInfo(PageMode pageMode) {
+	tab2Anchor.Visible = true;
+	activeTabId = tab2Anchor.ID;
+	btnSubmit.Visible = true;
+	pageMode.Value = pageMode.ToString();
+	if (PageMode.ADD == pageMode) {
+		tab2Anchor.Value = "Add Employee";
+	} else if (PageMode.MODIFY == pageMode) {
+		tab2Anchor.Value = "Modify Employee";
+	} else if (PageMode.VIEW == pageMode) {
+		tab2Anchor.Value = "Employee Details";
+		btnSubmit.Visible = false;
+	} else {
+		tab2Anchor.Visible = false;
+		activeTabId = tab1Anchor.ID;
+		ViewState[VS_SELECTED_EMPLOYEE] = null;
+	}
+}
+private void fetchEmployee() {
+	FirmMember firmMember = null;
+	if (PageMode.ADD.ToString().Equals(pageMode.Value)) {
+		firmMember = new FirmMember();
+		//Init subentities
+	} else if (PageMode.MODIFY.ToString().Equals(pageMode.Value) || PageMode.VIEW.ToString().Equals(pageMode.Value)) {
+		long Id = //Get selected Id from VIewState List => IsSelected = true
+		if(Id > 0) {
+			//Fetch from DB => firmMember
+		}
+	}
+	ViewState[VS_SELECTED_EMPLOYEE] = firmMember;
+}
+private void populateUIFieldsFromDTO(FirmMember firmMember) {
+}
+private void setSelectedEntity(long selectedId) {
+	//Set IsSelected = false for all ViewState List
+	//Set IsSelected = true for whcih firmMember.Id = selectedId
+}
+private void loadSearchGrid(long Id) {
+	//Fetch Employee for selected criteria and store in ViewState
+	if (Id > 0) {
+		//Select RadioBtn for Id
+		setSelectedEntity();
+	}
+}
+private void doViewModifyAction(ageMode pageMode) {
+	- setTabInfo(pageMode);
+	- fetchEmployee();
+	- populateUIFieldsFromDTO((FirmMember)ViewState[VS_SELECTED_EMPLOYEE]);
+}
+
+
